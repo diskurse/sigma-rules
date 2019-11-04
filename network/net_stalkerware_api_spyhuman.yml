@@ -1,0 +1,17 @@
+title: SpyHuman Stalkerware c2 API Request
+status: experimental
+description: Detects DNS queries to apispyhuman.com used as c2 by "SpyHuman" stalkerware
+references:
+    - https://github.com/diskurse/android-stalkerware/blob/master/stalkerware-urls
+author: Cian Heasley
+date: 2019/11/04
+logsource:
+    category: dns
+detection:
+    selection:
+        query:
+            - 'apispyhuman.com'
+    condition: selection
+falsepositives:
+    - Unlikely
+level: medium
