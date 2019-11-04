@@ -1,0 +1,17 @@
+title: Shadow Stalkerware API Request
+status: experimental
+description: Detects DNS queries to shadow-logs.com used as c2 by "Shadow" mobile stalkerware
+references:
+    - https://github.com/diskurse/android-stalkerware/blob/master/stalkerware-urls
+author: Cian Heasley
+date: 2019/11/04
+logsource:
+    category: dns
+detection:
+    selection:
+        query:
+            - 'shadow-logs.com'
+    condition: selection
+falsepositives:
+    - Unlikely
+level: medium
