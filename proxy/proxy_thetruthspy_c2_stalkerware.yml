@@ -1,0 +1,24 @@
+title: TheTruthSpy Mobile Stalkerware c2 Access
+status: experimental
+description: Detects TheTruthSpy c2 access
+references:
+    - https://github.com/diskurse/android-stalkerware/blob/master/stalkerware-urls
+author: Cian Heasley
+logsource:
+    category: proxy
+detection:
+    selection:
+      HttpMethod: 'GET'
+      URL:
+       - '*protocols/getsetting.aspx*'
+       - '*protocols/get_synx_now.aspx*'
+       - '*protocols/setsetting.aspx*'
+      Host: 'thetruthspy.com'
+    condition: selection
+fields:
+    - ClientIP
+    - URL
+    - UserAgent
+falsepositives:
+    - Unknown
+level: medium
